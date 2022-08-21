@@ -19,6 +19,8 @@ a {
   width: 100%;
   height: 100vh;
   z-index: -1;
+  -webkit-animation: IntorLode 2s forwards;
+          animation: IntorLode 2s forwards;
 }
 
 .logo {
@@ -82,12 +84,15 @@ h1 {
 section.hero {
   color: #fff;
   height: 90vh;
+  -webkit-animation: moveDown 1s ease-in-out forwards;
+          animation: moveDown 1s ease-in-out forwards;
 }
 section.hero .down-arrow {
   position: absolute;
-  bottom: 2em;
+  bottom: 5em;
   width: 1em;
   stroke: #fff;
+  animation: moveArrow 1s alternate-reverse infinite;
 }
 section.hero .down-arrow path {
   fill: #fff;
@@ -165,6 +170,7 @@ section.hero .down-arrow path {
   section.hero .down-arrow {
     stroke: black;
     position: unset;
+    margin-top: 1em;
   }
   section.hero .down-arrow path {
     fill: black;
@@ -202,4 +208,63 @@ section.hero .down-arrow path {
   .features {
     gap: 0;
   }
+}
+@-webkit-keyframes IntorLode {
+  from {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  to {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@keyframes IntorLode {
+  from {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  to {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@-webkit-keyframes moveArrow {
+  from {
+    transform: translateY(-25px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes moveArrow {
+  from {
+    transform: translateY(-25px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes moveDown {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes moveDown {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.open-nav {
+  transform: translateX(0);
 }/*# sourceMappingURL=main.css.map */

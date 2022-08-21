@@ -25,6 +25,7 @@ a {
     width: 100%;
     height: 100vh;
     z-index: -1;
+    animation: IntorLode 2s forwards;
     //overflow: hidden;
 }
 
@@ -96,12 +97,14 @@ h1 {
 section.hero {
     color: #fff;
     height: 90vh;
+    animation: moveDown 1s ease-in-out forwards;
     
     .down-arrow {
         position: absolute;
-        bottom: 2em;
+        bottom: 5em;
         width: 1em;
         stroke: #fff;
+        animation: moveArrow 1s alternate-reverse infinite;
 
         path {
             fill: #fff;
@@ -201,6 +204,7 @@ section.hero {
         .down-arrow {
             stroke: black;
             position: unset;
+            margin-top: 1em;
 
             path {
                 fill: black;
@@ -249,3 +253,42 @@ section.hero {
         gap: 0;
     }
 }
+
+// *Animations
+
+@keyframes IntorLode {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+@keyframes moveArrow {
+    from {
+        transform: translateY(-25px);
+    }
+    to {
+       transform: translateY(0);
+    }
+}
+
+@keyframes moveDown {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// *javascript classes that added
+
+.open-nav {
+    transform: translateX(0);
+}
+
+
